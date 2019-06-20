@@ -2,6 +2,7 @@ package com.crm.qa.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -16,18 +17,23 @@ public class ContactsPage extends TestBase {
 	WebElement newContactHeader;
 
 	@FindBy(xpath = "//label[text()='First Name']/following::input")
+	@CacheLookup
 	WebElement firstName;
 
 	@FindBy(xpath = "//label[text()='Last Name']/following::input")
+	@CacheLookup
 	WebElement lastName;
 
 	@FindBy(xpath = "//label[text()='Social Channels']/following::i[@class='dropdown icon']")
+	@CacheLookup
 	WebElement socialChannel;
 	//
 	@FindBy(xpath = "//label[text()='Company']/following::input")
+	@CacheLookup
 	WebElement addCompany;
 	
 	@FindBy(xpath = "//label[text()='Description']/following::textarea")
+	@CacheLookup
 	WebElement addDescription;
 
 	//
