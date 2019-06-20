@@ -28,10 +28,8 @@ public class TestUtil {
 		try {
 			book = WorkbookFactory.create(fin);
 		} catch (InvalidFormatException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		sheet=book.getSheet(sheetName);
