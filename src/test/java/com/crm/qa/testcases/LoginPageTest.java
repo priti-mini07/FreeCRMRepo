@@ -44,6 +44,7 @@ public class LoginPageTest extends TestBase{
 	@AfterMethod(alwaysRun=true)
 	public void tearDown() {
 		driver.quit();
+		System.out.println("Login Closed");
 	}
 	
 	

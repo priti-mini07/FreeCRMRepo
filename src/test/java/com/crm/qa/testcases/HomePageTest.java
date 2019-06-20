@@ -19,7 +19,7 @@ public class HomePageTest extends TestBase {
 		super();
 	}
 	
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
 	public void setUp() throws InterruptedException{
 		//Thread.sleep(10000);
 		initialization();
@@ -38,9 +38,10 @@ public class HomePageTest extends TestBase {
 		Assert.assertEquals(false,true);
 	}
 	
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void tearDown() {
 		driver.quit();
+		System.out.println("HomePage Closed");
 	}
 
 }

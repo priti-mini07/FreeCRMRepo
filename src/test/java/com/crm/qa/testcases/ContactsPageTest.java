@@ -23,9 +23,9 @@ public class ContactsPageTest extends TestBase {
 		super();
 	}
 	
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
 	public void setUp() throws InterruptedException {
-		Thread.sleep(20000);
+		//Thread.sleep(20000);
 		initialization();
 		loginPage= new LoginPage();
 		homePage=loginPage.enterInput(prop.getProperty("username"),prop.getProperty("password"));
@@ -57,9 +57,10 @@ public class ContactsPageTest extends TestBase {
 		
 	}
 	
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void tearDown() {
 		driver.quit();
+		System.out.println("Contacts Closed");
 	}
 	
 }
