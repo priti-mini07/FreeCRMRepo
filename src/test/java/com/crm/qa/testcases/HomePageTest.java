@@ -25,7 +25,6 @@ public class HomePageTest extends TestBase {
 		initialization();
 		loginPage= new LoginPage();
 		homePage=loginPage.enterInput(prop.getProperty("username"),prop.getProperty("password"));
-		//contactsPage= new ContactsPage();
 		
 	}
 	
