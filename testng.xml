@@ -6,6 +6,7 @@
  <class name="com.crm.qa.testcases.LoginPageTest"></class>
  <class name="com.crm.qa.testcases.HomePageTest"></class>
  <class name="com.crm.qa.testcases.ContactsPageTest"></class>
+<!--   <trying> -->
  
  </classes>
  </test>
