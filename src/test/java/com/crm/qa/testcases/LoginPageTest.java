@@ -25,7 +25,7 @@ public class LoginPageTest extends TestBase{
 		  loginPage= new LoginPage();
 	}
 	
-	@Test(priority=0)
+	@Test(priority=0,enabled=true)
 	public void loginPageTileTest(){
 		String title=loginPage.validateLoginPageTitle();
 		Assert.assertEquals(title,"CRM");

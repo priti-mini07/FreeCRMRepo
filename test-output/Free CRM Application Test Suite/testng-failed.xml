@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="3" guice-stage="DEVELOPMENT" name="Failed suite [Free CRM Application Test Suite]" parallel="methods">
-  <test thread-count="3" name="testngTest(failed)" parallel="methods">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Free CRM Application Test Suite]" parallel="methods">
+  <test thread-count="1" name="testngTest(failed)" parallel="methods">
     <classes>
+      <class name="com.crm.qa.testcases.LoginPageTest">
+        <methods>
+          <include name="loginPageTileTest"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="loginTest"/>
+        </methods>
+      </class> <!-- com.crm.qa.testcases.LoginPageTest -->
       <class name="com.crm.qa.testcases.ContactsPageTest">
         <methods>
           <include name="verifyContactTest"/>
