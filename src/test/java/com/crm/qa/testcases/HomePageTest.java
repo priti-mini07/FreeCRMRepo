@@ -15,22 +15,24 @@ public class HomePageTest extends TestBase {
 	HomePage homePage;
 	ContactsPage contactsPage;
 	
+	
 	public HomePageTest() {
 		super();
 	}
 	
 	@BeforeMethod(alwaysRun=true)
 	public void setUp() throws InterruptedException{
-		//Thread.sleep(10000);
+		//Thread.sleep(1000);
 		initialization();
 		loginPage= new LoginPage();
+		//loginPage.invisiblityOfSpinner();
 		homePage=loginPage.enterInput(prop.getProperty("username"),prop.getProperty("password"));
 		
 	}
 	
 	@Test(priority=0,enabled=true)
 	public void verifyHomePage() {
-		Assert.assertEquals(homePage.verifyHomePage(),true);
+		Assert.assertEquals(homePage.verifyHomePage(),false);
 	}
 	
 	@Test(enabled=false)
@@ -39,8 +41,8 @@ public class HomePageTest extends TestBase {
 	}
 	
 	@AfterMethod(alwaysRun=true)
-	public void tearDown() {
-		driver.quit();
+	public void tearDownDriver() {
+		tearDown();
 		System.out.println("HomePage Closed");
 	}
 

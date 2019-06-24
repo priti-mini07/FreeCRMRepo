@@ -1,14 +1,17 @@
 package com.crm.qa.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.crm.qa.base.BrowserFactory;
 import com.crm.qa.base.TestBase;
 
 public class ContactsPage extends TestBase {
+	//WebDriver driver;
 
 	@FindBy(xpath = "//a[@href='/contacts/new']/button")
 	WebElement newContact;
@@ -39,8 +42,9 @@ public class ContactsPage extends TestBase {
 	//
 
 	public ContactsPage() {
-		PageFactory.initElements(driver, this);
-
+		driver=BrowserFactory.getInstance().getDriver();
+		PageFactory.initElements(this.driver, this);
+		
 	}
 
 	public boolean verifyContactPage() {
@@ -49,7 +53,7 @@ public class ContactsPage extends TestBase {
 
 	public boolean createNewContactLink() {
 		newContact.click();
-		return newContactHeader.isDisplayed();
+		return newContactHeader.isSelected();
 	}
 
 	public void enterDetailsOfNewContact(String fname,String lName, String company, String socialAcct, String description) {

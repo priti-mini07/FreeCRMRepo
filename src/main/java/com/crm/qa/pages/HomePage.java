@@ -1,15 +1,17 @@
 package com.crm.qa.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import com.crm.qa.base.BrowserFactory;
 import com.crm.qa.base.TestBase;
 
 public class HomePage extends TestBase {
 	
-	
+	//WebDriver driver;
   @FindBy(xpath="//span[text()='Home']")
   WebElement homePageLink;
   
@@ -26,7 +28,9 @@ public class HomePage extends TestBase {
   WebElement PageLink;
   
   public HomePage() {
-		PageFactory.initElements(driver, this);
+	  driver=BrowserFactory.getInstance().getDriver();
+		PageFactory.initElements(this.driver, this);
+		System.out.println("Driver in Home Page : "+driver.toString());
 		//this is current class object
 	}
   

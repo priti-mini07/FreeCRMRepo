@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.crm.qa.util.TestUtil;
@@ -24,6 +27,8 @@ public class TestBase {
 					System.getProperty("user.dir") + "/src/main/java/com/crm/qa/config/config.properties");
 
 			prop.load(ip);
+			
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -32,18 +37,21 @@ public class TestBase {
 
 	}
 
-	public static void initialization() {
+	public static synchronized void initialization() throws InterruptedException {
 		String browserName = prop.getProperty("browser");
-		if (browserName.contentEquals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", "/Users/krishna/Downloads/chromedriver");
-			driver = new ChromeDriver();
-
+		    BrowserFactory.getInstance().setDriver(browserName);
+		    driver = BrowserFactory.getInstance().getDriver();
+			
 			driver.manage().window().maximize();
-			driver.manage().deleteAllCookies();
+		    driver.manage().deleteAllCookies();
 			driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 			driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 			driver.get(prop.getProperty("url"));
-		}
+
+			}
+	public static void tearDown() {
+		BrowserFactory.getInstance().removeDriver();
+		
 
 	}
 }
